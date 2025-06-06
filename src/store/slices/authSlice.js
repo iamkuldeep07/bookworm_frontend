@@ -1,12 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Get base URL from .env
-// const API_URL = import.meta.env.VITE_API_URL;
-
-// if (!API_URL) {
-//   console.error("REACT_APP_API_URL is not defined in .env!");
-// }
 
 const authSlice = createSlice({
   name: "auth",
@@ -152,7 +146,7 @@ export const resetAuthSlice = () => (dispatch) => {
 export const register = (data) => async (dispatch) => {
   dispatch(authSlice.actions.registerRequest());
   await axios
-    .post("https://library-management-system-backend-lhbc.onrender.com/api/v1/auth/register", data, {
+    .post("https://bookworm-backend-n7ja.onrender.com/api/v1/auth/register", data, {
       withCredentials: true,
       headers: { "Content-Type": "application/json" },
     })
@@ -167,7 +161,7 @@ export const register = (data) => async (dispatch) => {
 export const otpVerification = (email, otp) => async (dispatch) => {
   dispatch(authSlice.actions.otpVerificationRequest());
   await axios
-    .post("https://library-management-system-backend-lhbc.onrender.com/api/v1/auth/verify-otp", { email, otp }, {
+    .post("https://bookworm-backend-n7ja.onrender.com/api/v1/auth/verify-otp", { email, otp }, {
       withCredentials: true,
       headers: { "Content-Type": "application/json" },
     })
@@ -182,7 +176,7 @@ export const otpVerification = (email, otp) => async (dispatch) => {
 export const login = (data) => async (dispatch) => {
   dispatch(authSlice.actions.loginRequest());
   await axios
-    .post("https://library-management-system-backend-lhbc.onrender.com/api/v1/auth/login", data, {
+    .post("https://bookworm-backend-n7ja.onrender.com/api/v1/auth/login", data, {
       withCredentials: true,
       headers: { "Content-Type": "application/json" },
     })
@@ -197,7 +191,7 @@ export const login = (data) => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   dispatch(authSlice.actions.logoutRequest());
   await axios
-    .get("https://library-management-system-backend-lhbc.onrender.com/api/v1/auth/logout", {
+    .get("https://bookworm-backend-n7ja.onrender.com/api/v1/auth/logout", {
       withCredentials: true,
     })
     .then((res) => {
@@ -212,7 +206,7 @@ export const logout = () => async (dispatch) => {
 export const getUser = () => async (dispatch) => {
   dispatch(authSlice.actions.getUserRequest());
   await axios
-    .get("https://library-management-system-backend-lhbc.onrender.com/api/v1/auth/me", {
+    .get("https://bookworm-backend-n7ja.onrender.com/api/v1/auth/me", {
       withCredentials: true,
     })
     .then((res) => {
@@ -226,7 +220,7 @@ export const getUser = () => async (dispatch) => {
 export const forgotPassword = (email) => async (dispatch) => {
   dispatch(authSlice.actions.forgotPasswordRequest());
   await axios
-    .post("https://library-management-system-backend-lhbc.onrender.com/api/v1/auth/password/forgot", { email }, {
+    .post("https://bookworm-backend-n7ja.onrender.com/api/v1/auth/password/forgot", { email }, {
       withCredentials: true,
       headers: { "Content-Type": "application/json" },
     })
@@ -241,7 +235,7 @@ export const forgotPassword = (email) => async (dispatch) => {
 export const resetPassword = (data, token) => async (dispatch) => {
   dispatch(authSlice.actions.resetPasswordRequest());
   await axios
-    .put(`https://library-management-system-backend-lhbc.onrender.com/api/v1/auth/password/reset/${token}`, data, {
+    .put(`https://bookworm-backend-n7ja.onrender.com/api/v1/auth/password/reset/${token}`, data, {
       withCredentials: true,
       headers: { "Content-Type": "application/json" },
     })
@@ -256,7 +250,7 @@ export const resetPassword = (data, token) => async (dispatch) => {
 export const updatePassword = (data) => async (dispatch) => {
   dispatch(authSlice.actions.updatePasswordRequest());
   await axios
-    .put("https://library-management-system-backend-lhbc.onrender.com/api/v1/auth/password/update", data, {
+    .put("https://bookworm-backend-n7ja.onrender.com/api/v1/auth/password/update", data, {
       withCredentials: true,
       headers: { "Content-Type": "application/json" },
     })
