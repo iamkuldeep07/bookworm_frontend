@@ -82,7 +82,7 @@ const borrowSlice = createSlice({
 export const fetchUserBorrowedBooks = () => async (dispatch) => {
   dispatch(borrowSlice.actions.fetchUserBorrowedBooksRequest());
   try {
-    const res = await axios.get("https://library-management-system-backend-lhbc.onrender.com/api/v1/borrow/my-borrowed-books", {
+    const res = await axios.get("https://bookworm-backend-n7ja.onrender.com/api/v1/borrow/my-borrowed-books", {
       withCredentials: true,
     });
     dispatch(
@@ -103,7 +103,7 @@ export const fetchAllBorrowedBooks = () => async (dispatch) => {
   dispatch(borrowSlice.actions.fetchAllBorrowedBooksRequest());
   try {
     const res = await axios.get(
-      "https://library-management-system-backend-lhbc.onrender.com/api/v1/borrow/borrowed-books-by-users",
+      "https://bookworm-backend-n7ja.onrender.com/api/v1/borrow/borrowed-books-by-users",
       {
         withCredentials: true,
       }
@@ -126,7 +126,7 @@ export const recordBorrowBook = (email, id) => async (dispatch) => {
   dispatch(borrowSlice.actions.recordBookRequest());
   try {
     const res = await axios.post(
-      `https://library-management-system-backend-lhbc.onrender.com/api/v1/borrow/record-borrow-book/${id}`,
+      `https://bookworm-backend-n7ja.onrender.com/api/v1/borrow/record-borrow-book/${id}`,
       { email },
       {
         withCredentials: true,
@@ -150,7 +150,7 @@ export const returnBook = (email, id) => async (dispatch) => {
   dispatch(borrowSlice.actions.returnBookRequest());
   try {
     const res = await axios.put(
-      `https://library-management-system-backend-lhbc.onrender.com/api/v1/borrow/return-borrowed-book/${id}`,
+      `https://bookworm-backend-n7ja.onrender.com/api/v1/borrow/return-borrowed-book/${id}`,
       { email },
       {
         withCredentials: true,
