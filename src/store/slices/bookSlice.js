@@ -54,7 +54,7 @@ const bookSlice = createSlice({
 export const fetchAllBooks = () => async (dispatch) => {
   dispatch(bookSlice.actions.fetchBooksRequest());
   try {
-    const res = await axios.get("https://library-management-system-backend-lhbc.onrender.com/api/v1/book/all", {
+    const res = await axios.get("https://bookworm-backend-n7ja.onrender.com/api/v1/book/all", {
       withCredentials: true,
     });
     dispatch(bookSlice.actions.fetchBooksSuccess(res.data.books));
@@ -71,7 +71,7 @@ export const fetchAllBooks = () => async (dispatch) => {
 export const addBook = (data) => async (dispatch) => {
   dispatch(bookSlice.actions.addBookRequest());
   try {
-    const res = await axios.post("https://library-management-system-backend-lhbc.onrender.com/api/v1/book/admin/add", data, {
+    const res = await axios.post("https://bookworm-backend-n7ja.onrender.com/api/v1/book/admin/add", data, {
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",
